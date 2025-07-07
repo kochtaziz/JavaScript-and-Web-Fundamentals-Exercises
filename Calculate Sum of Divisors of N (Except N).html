@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css" />
+    <title>Sum of Divisors</title>
+</head>
+<body>
+    <form action="">
+        <h4>Calcul de la somme des diviseurs de N sauf lui-même</h4>
+        <div>
+            <label for="" class="lab1">Valeur de N: </label>
+            <input type="number" id="nb1" />
+        </div>
+        <div>
+            <input type="button" value="Calculer" onclick="calcul()" />
+        </div>
+        <div>
+            <label for="" class="lab1">Résultat:</label>
+            <input type="number" id="nb2" readonly />
+        </div>
+    </form>
+
+    <script>
+        let nb1 = document.getElementById('nb1');
+        let nb2 = document.getElementById('nb2');
+
+        function calcul() {
+            let s = 1,
+                i,
+                n = Number(nb1.value);
+            if (n <= 1) {
+                alert('Veuillez saisir un nombre supérieur à 1');
+                return false;
+            }
+            for (i = 2; i <= n / 2; i++) {
+                if (n % i == 0) s += i;
+            }
+            nb2.value = s;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css" />
+    <title>Discount Calculator</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label for="" class="lab1">Prix :</label>
+            <input type="number" id="nb1" />
+        </div>
+        <div>
+            <label for="" class="lab1">Remise :</label>
+            <label><input type="radio" name="R" id="r1" value="0.1" checked /> 10%</label>
+            <label><input type="radio" name="R" id="r2" value="0.2" /> 20%</label>
+            <label><input type="radio" name="R" id="r3" value="0.3" /> 30%</label>
+        </div>
+        <div>
+            <input type="button" value="Calculer" onclick="remise()" />
+        </div>
+        <div>
+            <label for="" class="lab1">Montant à payer :</label>
+            <input type="number" id="nb2" readonly />
+        </div>
+    </form>
+    <script>
+        let nb1 = document.getElementById('nb1');
+        let nb2 = document.getElementById('nb2');
+        let r1 = document.getElementById('r1');
+        let r2 = document.getElementById('r2');
+        let r3 = document.getElementById('r3');
+
+        function remise() {
+            let m;
+            if (r1.checked) m = r1.value;
+            else if (r2.checked) m = r2.value;
+            else if (r3.checked) m = r3.value;
+
+            nb2.value = nb1.value * (1 - m);
+        }
+    </script>
+</body>
+</html>

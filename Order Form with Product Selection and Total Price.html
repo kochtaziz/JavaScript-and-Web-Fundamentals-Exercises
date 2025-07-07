@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css" />
+    <title>Order Form</title>
+</head>
+<body>
+    <h3>Bon de commande</h3>
+    <form action="">
+        <div>
+            <label for="" class="lab1">Nom et Prénom :</label>
+            <input type="text" id="np" />
+        </div>
+        <div>
+            <label for="" class="lab1">Produits :</label>
+            <label for="" class="lab2">Quantité à commander :</label>
+        </div>
+        <div>
+            <select id="d">
+                <option value="439">Barette mémoire</option>
+                <option value="469">Boite d'alimentation</option>
+                <option value="95">Disque dur externe</option>
+                <option value="399">Processeur</option>
+            </select>
+            <input type="number" id="qt" />
+        </div>
+        <div>
+            <input type="button" value="Commander" onclick="commande()" />
+        </div>
+    </form>
+
+    <script>
+        let d = document.getElementById('d');
+        let np = document.getElementById('np');
+        let qt = document.getElementById('qt');
+
+        function commande() {
+            let ind = d.selectedIndex;
+            let prd = d.options[ind].text;
+            let prix = d.value;
+            alert(
+                "M/mme " +
+                    np.value +
+                    " vous avez commandé " +
+                    qt.value +
+                    " " +
+                    prd +
+                    "\n" +
+                    "Le total du prix : " +
+                    prix * qt.value
+            );
+        }
+    </script>
+</body>
+</html>

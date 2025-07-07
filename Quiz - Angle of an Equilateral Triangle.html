@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css" />
+    <title>Triangle Angle Quiz</title>
+</head>
+<body>
+    <p>
+        <span>Question :</span> Quelle est la mesure des angles d'un triangle équilatéral?
+    </p>
+    <form action="">
+        <div>
+            <label for="" class="lab1">Réponse :</label>
+            <label><input type="radio" name="angles" id="a1" /> 30°</label>
+            <label><input type="radio" name="angles" id="a2" /> 45°</label>
+            <label><input type="radio" name="angles" id="a3" /> 60°</label>
+            <label><input type="radio" name="angles" id="a4" /> 90°</label>
+        </div>
+        <div>
+            <input type="button" value="Vérifier" onclick="verif()" />
+        </div>
+    </form>
+    <script>
+        let a1 = document.getElementById('a1');
+        let a2 = document.getElementById('a2');
+        let a3 = document.getElementById('a3');
+        let a4 = document.getElementById('a4');
+
+        function verif() {
+            if (!a1.checked && !a2.checked && !a3.checked && !a4.checked) {
+                alert('Veuillez choisir une réponse');
+                return false;
+            }
+            if (a3.checked) alert('Correcte');
+            else alert('Incorrecte');
+        }
+    </script>
+</body>
+</html>

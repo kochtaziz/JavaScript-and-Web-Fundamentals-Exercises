@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style1.css" />
+    <title>Formation Price Calculator</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Choisir une formation</legend>
+            <div>
+                <label class="lab2"><input type="checkbox" name="f1" id="fm1" value="400" />Bureautique</label>
+                <label class="lab2"><input type="checkbox" name="f1" id="fm2" value="500" />Montage Vidéo</label>
+            </div>
+            <div>
+                <label class="lab2"><input type="checkbox" name="f1" id="fm3" value="700" />Web</label>
+                <label class="lab2 tt"><input type="checkbox" name="f1" id="fm4" value="500" />Programmation</label>
+            </div>
+            <div>
+                <input type="button" value="Calculer le prix" onclick="prix()" />
+            </div>
+        </fieldset>
+    </form>
+
+    <script>
+        let fm1 = document.getElementById('fm1');
+        let fm2 = document.getElementById('fm2');
+        let fm3 = document.getElementById('fm3');
+        let fm4 = document.getElementById('fm4');
+
+        function prix() {
+            if (!fm1.checked && !fm2.checked && !fm3.checked && !fm4.checked) {
+                alert('Veuillez choisir un module de formation');
+                return false;
+            }
+            let p = 0,
+                n = 0;
+            if (fm1.checked) {
+                n++;
+                p += Number(fm1.value);
+            }
+            if (fm2.checked) {
+                n++;
+                p += Number(fm2.value);
+            }
+            if (fm3.checked) {
+                n++;
+                p += Number(fm3.value);
+            }
+            if (fm4.checked) {
+                n++;
+                p += Number(fm4.value);
+            }
+
+            if (n == 2) p = p - p * 0.15;
+            else if (n >= 3) p = p - p * 0.25;
+            alert(n + ' Formation(s) avec le prix ' + p);
+        }
+    </script>
+</body>
+</html>
